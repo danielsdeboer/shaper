@@ -1,0 +1,43 @@
+{
+    "name": "aviator/shaper",
+    "type": "library",
+    "description": "Abstract transformers for collections and arrays.",
+    "keywords": [
+        "php",
+        "php7",
+        "laravel",
+        "collections",
+        "arrays",
+        "transformer"
+    ],
+    "homepage": "https://github.com/danielsdeboer/shaper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel S. Deboer",
+            "email": "daniel.s.deboer@gmail.com",
+            "homepage": "https://aviatorcreative.ca",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aviator\\Shaper\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "tightenco/collect": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.4.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
