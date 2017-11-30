@@ -5,10 +5,10 @@
     "keywords": [
         "php",
         "php7",
-        "laravel",
         "collections",
         "arrays",
-        "transformer"
+        "transformer",
+        "shaper"
     ],
     "homepage": "https://github.com/danielsdeboer/shaper",
     "license": "MIT",
