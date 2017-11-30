@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/danielsdeboer/shaper.svg?branch=master)](https://travis-ci.org/danielsdeboer/shaper)
+[![Latest Stable Version](https://poser.pugx.org/aviator/shaper/v/stable)](https://packagist.org/packages/aviator/shaper)
+[![License](https://poser.pugx.org/aviator/shaper/license)](https://packagist.org/packages/aviator/shaper)
+
 ## Overview
 
 Shaper provides an interface and abstract classes which can be extended to create array or collection shaper classes. These classes can then be reused to shape the same sort of iterable, eg when preparing for serialization.
