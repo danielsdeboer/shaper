@@ -46,12 +46,12 @@ abstract class ArrayShaper implements Shaper
 
     /**
      * Set the array.
-     * @param array $array
+     * @param array $model
      * @return static
      */
-    public function set ($array)
+    public function set ($model)
     {
-        $this->setArray($array);
+        $this->setArray($model);
 
         return $this;
     }
