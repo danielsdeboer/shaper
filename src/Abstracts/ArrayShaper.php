@@ -2,11 +2,13 @@
 
 namespace Aviator\Shaper\Abstracts;
 
+use Aviator\Makeable\Traits\MakeableTrait;
 use Aviator\Shaper\Interfaces\Shaper;
-use Illuminate\Support\Collection;
 
 abstract class ArrayShaper implements Shaper
 {
+    use MakeableTrait;
+
     /** @var array */
     protected $array;
 
