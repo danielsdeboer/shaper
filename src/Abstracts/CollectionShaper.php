@@ -2,11 +2,14 @@
 
 namespace Aviator\Shaper\Abstracts;
 
+use Aviator\Makeable\Traits\MakeableTrait;
 use Aviator\Shaper\Interfaces\Shaper;
 use Illuminate\Support\Collection;
 
 abstract class CollectionShaper implements Shaper
 {
+    use MakeableTrait;
+    
     /** @var \Illuminate\Support\Collection */
     protected $collection;
 

@@ -2,7 +2,9 @@
 
 namespace Aviator\Shaper\Interfaces;
 
-interface Shaper
+use Aviator\Makeable\Interfaces\Makeable;
+
+interface Shaper extends Makeable
 {
     /**
      * The callback applied to each iteration.
