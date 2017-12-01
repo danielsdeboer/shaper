@@ -4,6 +4,8 @@ namespace Tests\Fixtures;
 
 use Aviator\Shaper\Abstracts\ArrayShaper;
 use Aviator\Shaper\Abstracts\CollectionShaper;
+use Aviator\Shaper\Abstracts\ModelShaper;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 class Make
@@ -60,6 +62,32 @@ class Make
                     'mutated_name' => $item['name']
                 ];
             }
+        };
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @return \Aviator\Shaper\Abstracts\ModelShaper
+     */
+    public function modelShaper (Model $model = null)
+    {
+        return new class($model) extends ModelShaper {
+            public function shaper ($item)
+            {
+                return [
+                    'mutated_name' => $item->name
+                ];
+            }
+        };
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function model ()
+    {
+        return new class(['name' => 'test']) extends Model {
+            protected $guarded = [];
         };
     }
 }
