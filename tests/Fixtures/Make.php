@@ -7,6 +7,7 @@ use Aviator\Shaper\Abstracts\CollectionShaper;
 use Aviator\Shaper\Abstracts\ModelShaper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Tests\Fixtures\Model as ModelFixture;
 
 class Make
 {
@@ -86,8 +87,6 @@ class Make
      */
     public function model ()
     {
-        return new class(['name' => 'test']) extends Model {
-            protected $guarded = [];
-        };
+        return new ModelFixture(['name' => 'test']);
     }
 }
