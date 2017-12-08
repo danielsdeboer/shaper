@@ -5,6 +5,7 @@ namespace Tests\Fixtures;
 use Aviator\Shaper\Abstracts\ArrayShaper;
 use Aviator\Shaper\Abstracts\CollectionShaper;
 use Aviator\Shaper\Abstracts\ModelShaper;
+use Aviator\Shaper\Item\ArrayItemShaper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Tests\Fixtures\Model as ModelFixture;
@@ -32,6 +33,42 @@ class Make
     public function array () : array
     {
         return $this->collectionItems;
+    }
+
+    /**
+     * @return array
+     */
+    public function arrayItem () : array
+    {
+        return $this->collectionItems[0];
+    }
+
+    /**
+     * @return \Closure
+     */
+    public function callback () : \Closure
+    {
+        return function ($item) {
+            return [
+                'mutated_name' => $item['name']
+            ];
+        };
+    }
+
+    /**
+     * @param array|null $item
+     * @return \Aviator\Shaper\Item\ArrayItemShaper
+     */
+    public function arrayItemShaper (array $item = null)
+    {
+        return new class($item) extends ArrayItemShaper {
+            public function shaper ($item)
+            {
+                return [
+                    'mutated_name' => $item['name']
+                ];
+            }
+        };
     }
 
     /**
