@@ -47,12 +47,12 @@ abstract class ModelShaper implements Shaper
 
     /**
      * Set the array.
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param \Illuminate\Database\Eloquent\Model $item
      * @return static
      */
-    public function set ($model)
+    public function set ($item)
     {
-        $this->setModel($model);
+        $this->setModel($item);
 
         return $this;
     }
