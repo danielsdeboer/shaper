@@ -13,10 +13,6 @@ abstract class ModelShaper implements Shaper
     /** @var \Illuminate\Database\Eloquent\Model */
     protected $model;
 
-    /**
-     * Constructor.
-     * @param \Illuminate\Database\Eloquent\Model|null $model
-     */
     public function __construct (Model $model = null)
     {
         $this->model = $model;

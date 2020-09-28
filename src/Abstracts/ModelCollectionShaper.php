@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 class ModelCollectionShaper implements Shaper
 {
     use MakeableTrait;
-    
+
     /** @var \Illuminate\Database\Eloquent\Collection */
     protected $collection;
 
@@ -31,12 +31,6 @@ class ModelCollectionShaper implements Shaper
     /** @var array */
     protected $specificRelations = [];
 
-    /**
-     * Constructor.
-     * @param \Illuminate\Database\Eloquent\Collection $collection
-     * @param \Aviator\Shaper\Abstracts\ModelShaper|null $modelShaper
-     * @param array|null $relationShapers
-     */
     public function __construct (
         Collection $collection = null,
         ModelShaper $modelShaper = null,
