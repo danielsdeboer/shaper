@@ -15,7 +15,7 @@ class ModelShaperTest extends UnitTest
 
         $shaped = $shaper->shape();
 
-        $this->assertInternalType('array', $shaped);
+        $this->assertIsArray($shaped);
         $this->arrayMatches($shaped);
     }
 

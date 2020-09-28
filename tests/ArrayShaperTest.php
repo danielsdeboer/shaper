@@ -13,7 +13,7 @@ class ArrayShaperTest extends UnitTest
 
         $shaped = $shaper->shape();
 
-        $this->assertInternalType('array', $shaped);
+        $this->assertIsArray($shaped);
         array_map([$this, 'arrayMatches'], $shaped);
     }
 
@@ -26,6 +26,6 @@ class ArrayShaperTest extends UnitTest
 
         $shaper->set($this->make->array());
 
-        $this->assertInternalType('array', $shaper->get());
+        $this->assertIsArray($shaper->get());
     }
 }

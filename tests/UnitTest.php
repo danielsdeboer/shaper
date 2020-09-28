@@ -10,7 +10,7 @@ abstract class UnitTest extends TestCase
     /** @var \Tests\Fixtures\Make */
     public $make;
 
-    protected function setUp ()
+    protected function setUp (): void
     {
         parent::setUp();
 
@@ -19,7 +19,7 @@ abstract class UnitTest extends TestCase
 
     public function arrayMatches ($item)
     {
-        $this->assertInternalType('array', $item);
+        $this->assertIsArray($item);
         $this->assertArrayHasKey('mutated_name', $item);
         $this->assertArrayNotHasKey('reject', $item);
         $this->assertArrayNotHasKey('some_key', $item);
