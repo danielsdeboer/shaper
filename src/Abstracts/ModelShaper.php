@@ -13,7 +13,7 @@ abstract class ModelShaper implements Shaper
     /** @var \Illuminate\Database\Eloquent\Model */
     protected $model;
 
-    public function __construct (Model $model = null)
+    public function __construct(Model|null $model = null)
     {
         $this->model = $model;
     }
@@ -22,31 +22,33 @@ abstract class ModelShaper implements Shaper
      * @param mixed $item
      * @return mixed
      */
-    abstract public function shaper ($item);
+    abstract public function shaper($item);
 
     /**
      * @return array
      */
-    public function shape ()
+    public function shape()
     {
         return $this->shaper($this->model);
     }
 
     /**
      * Get the underlying model
+     *
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function get ()
+    public function get()
     {
         return $this->model;
     }
 
     /**
      * Set the array.
+     *
      * @param \Illuminate\Database\Eloquent\Model $item
      * @return static
      */
-    public function set ($item)
+    public function set($item)
     {
         $this->setModel($item);
 
@@ -55,11 +57,9 @@ abstract class ModelShaper implements Shaper
 
     /**
      * Set the collection instance.
-     * @param \Illuminate\Database\Eloquent\Model $model
      */
-    protected function setModel (Model $model)
+    protected function setModel(Model $model)
     {
         $this->model = $model;
     }
 }
-

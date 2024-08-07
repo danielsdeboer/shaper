@@ -10,10 +10,10 @@ class RelationModelShaper extends ModelShaper
      * @param mixed $item
      * @return mixed
      */
-    public function shaper ($item)
+    public function shaper($item)
     {
         return [
-            'mutated_property' => $item->property
+            'mutated_property' => $item->property,
         ];
     }
 }

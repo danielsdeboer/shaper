@@ -14,9 +14,8 @@ abstract class ArrayShaper implements Shaper
 
     /**
      * Constructor.
-     * @param array|null $array
      */
-    public function __construct (array $array = null)
+    public function __construct(array|null $array = null)
     {
         $this->array = $array;
     }
@@ -25,31 +24,33 @@ abstract class ArrayShaper implements Shaper
      * @param mixed $item
      * @return mixed
      */
-    abstract public function shaper ($item);
+    abstract public function shaper($item);
 
     /**
      * @return array
      */
-    public function shape ()
+    public function shape()
     {
         return array_map([$this, 'shaper'], $this->array);
     }
 
     /**
      * Get the underlying array
+     *
      * @return array
      */
-    public function get ()
+    public function get()
     {
         return $this->array;
     }
 
     /**
      * Set the array.
+     *
      * @param array $item
      * @return static
      */
-    public function set ($item)
+    public function set($item)
     {
         $this->setArray($item);
 
@@ -58,11 +59,9 @@ abstract class ArrayShaper implements Shaper
 
     /**
      * Set the collection instance.
-     * @param array $array
      */
-    protected function setArray (array $array)
+    protected function setArray(array $array)
     {
         $this->array = $array;
     }
 }
-

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ArrayItemShaperTest extends UnitTest
 {
     /** @test */
-    public function it_can_be_instantiated_with_an_anonymous_function ()
+    public function it_can_be_instantiated_with_an_anonymous_function()
     {
         $shaper = new ArrayItemShaper(
             $this->make->arrayItem(),
@@ -22,9 +22,9 @@ class ArrayItemShaperTest extends UnitTest
     }
 
     /** @test */
-    public function the_item_and_callback_can_be_added_after_instantiation ()
+    public function the_item_and_callback_can_be_added_after_instantiation()
     {
-        $shaper = new ArrayItemShaper;
+        $shaper = new ArrayItemShaper();
 
         $shaper->set($this->make->arrayItem());
         $shaper->setCallback($this->make->callback());
@@ -36,7 +36,7 @@ class ArrayItemShaperTest extends UnitTest
     }
 
     /** @test */
-    public function extending_classes_can_ignore_the_callback_and_override_the_method ()
+    public function extending_classes_can_ignore_the_callback_and_override_the_method()
     {
         $shaper = $this->make->arrayItemShaper(
             $this->make->arrayItem()
@@ -49,7 +49,7 @@ class ArrayItemShaperTest extends UnitTest
     }
 
     /** @test */
-    public function extensions_may_also_set_the_item_after_instantiation ()
+    public function extensions_may_also_set_the_item_after_instantiation()
     {
         $shaper = $this->make->arrayItemShaper();
 

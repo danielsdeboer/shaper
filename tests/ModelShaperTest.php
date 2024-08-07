@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ModelShaperTest extends UnitTest
 {
     /** @test */
-    public function it_shapes_a_single_model ()
+    public function it_shapes_a_single_model()
     {
         $shaper = $this->make->modelShaper(
             $this->make->model()
@@ -20,7 +20,7 @@ class ModelShaperTest extends UnitTest
     }
 
     /** @test */
-    public function it_may_set_the_model_after_instantiation ()
+    public function it_may_set_the_model_after_instantiation()
     {
         $shaper = $this->make->modelShaper();
 

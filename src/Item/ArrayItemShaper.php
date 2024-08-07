@@ -12,10 +12,8 @@ class ArrayItemShaper extends ItemShaper implements Shaper
 
     /**
      * Constructor.
-     * @param array|null $item
-     * @param \Closure|null $shaper
      */
-    public function __construct (array $item = null, Closure $shaper = null)
+    public function __construct(array|null $item = null, Closure|null $shaper = null)
     {
         $this->set($item);
 
@@ -23,14 +21,12 @@ class ArrayItemShaper extends ItemShaper implements Shaper
     }
 
     /**
-     * @param $item
      * @return mixed
      */
-    public function shaper ($item)
+    public function shaper($item)
     {
         $cb = $this->shaperCb;
 
         return $cb($item);
     }
 }
-

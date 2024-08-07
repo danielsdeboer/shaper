@@ -10,19 +10,20 @@ class Model extends BaseModel
     protected $guarded = [];
 
     public $hasManyRelation;
+
     public $hasOneRelation;
 
-    public function __construct (array $attributes = [])
+    public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
 
         $this->hasManyRelation = new Collection([
-            new Relation(['property' => 'some_value'])
+            new Relation(['property' => 'some_value']),
         ]);
 
         $this->hasOneRelation = new Relation([
             'property' => 'some other value!',
-            'this_should' => 'be discarded'
+            'this_should' => 'be discarded',
         ]);
     }
 }

@@ -11,15 +11,15 @@
   stopOnFailure="false"
   verbose="true"
 >
-    <testsuites>
-        <testsuite name="Test Suite">
-            <directory suffix=".php">./tests/</directory>
-        </testsuite>
-    </testsuites>
+  <testsuites>
+    <testsuite name="Test Suite">
+      <directory suffix=".php">./tests/</directory>
+    </testsuite>
+  </testsuites>
 
-    <filter>
-      <whitelist>
-        <directory suffix=".php">./src</directory>
-      </whitelist>
-    </filter>
+  <filter>
+    <whitelist>
+      <directory suffix=".php">./src</directory>
+    </whitelist>
+  </filter>
 </phpunit>

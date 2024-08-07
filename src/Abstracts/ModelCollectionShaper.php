@@ -31,14 +31,13 @@ class ModelCollectionShaper implements Shaper
     /** @var array */
     protected $specificRelations = [];
 
-    public function __construct (
-        Collection $collection = null,
-        ModelShaper $modelShaper = null,
-        array $relationShapers = null
-    )
-    {
+    public function __construct(
+        Collection|null $collection = null,
+        ModelShaper|null $modelShaper = null,
+        array|null $relationShapers = null
+    ) {
         $this->collection = $collection;
-        $this->modelShaper = $modelShaper ?: new $this->modelShaperClass;
+        $this->modelShaper = $modelShaper ?: new $this->modelShaperClass();
         $this->setRelationShapers($relationShapers);
     }
 
@@ -46,10 +45,11 @@ class ModelCollectionShaper implements Shaper
      * Specify (without parameter) to only shape the base model and discard relations.
      * Or (with parameter) to shape the base model plus the given relations,
      * discarding other relations.
+     *
      * @param array|string|null $relations
      * @return $this
      */
-    public function only ($relations = null)
+    public function only($relations = null)
     {
         $this->baseModelOnly = !$relations;
 
@@ -64,7 +64,7 @@ class ModelCollectionShaper implements Shaper
      * @param \Illuminate\Database\Eloquent\Model $model
      * @return array
      */
-    public function shaper ($model)
+    public function shaper($model)
     {
         /** @var \Aviator\Shaper\Abstracts\ModelShaper[] */
         $relations = $this->filteredRelations();
@@ -98,26 +98,28 @@ class ModelCollectionShaper implements Shaper
     /**
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function shape ()
+    public function shape()
     {
         return $this->collection->map([$this, 'shaper']);
     }
 
     /**
      * Get the underlying collection
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function get ()
+    public function get()
     {
         return $this->collection;
     }
 
     /**
      * Set the collection.
+     *
      * @param \Illuminate\Database\Eloquent\Collection $collection
      * @return static
      */
-    public function set ($collection)
+    public function set($collection)
     {
         $this->setCollection($collection);
 
@@ -126,9 +128,8 @@ class ModelCollectionShaper implements Shaper
 
     /**
      * Set the collection instance.
-     * @param \Illuminate\Database\Eloquent\Collection $collection
      */
-    protected function setCollection (Collection $collection)
+    protected function setCollection(Collection $collection)
     {
         $this->collection = $collection;
     }
@@ -136,24 +137,26 @@ class ModelCollectionShaper implements Shaper
     /**
      * Set the array of relation model shapers if provided, otherwise
      * instantiate the default shapers.
+     *
      * @param array|string|null $relationModelShapers
      */
-    protected function setRelationShapers ($relationModelShapers = null)
+    protected function setRelationShapers($relationModelShapers = null)
     {
         if ($relationModelShapers) {
             $this->relationShapers = $relationModelShapers;
         } else {
             foreach ($this->relationShaperClasses as $method => $class) {
-                $this->relationShapers[$method] = new $class;
+                $this->relationShapers[$method] = new $class();
             }
         }
     }
 
     /**
      * Get a list of keyed relations to use.
+     *
      * @return array|\Aviator\Shaper\Abstracts\ModelShaper[]
      */
-    protected function filteredRelations ()
+    protected function filteredRelations()
     {
         if ($this->baseModelOnly) {
             return [];
@@ -172,4 +175,3 @@ class ModelCollectionShaper implements Shaper
         );
     }
 }
-
